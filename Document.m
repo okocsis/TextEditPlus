@@ -86,7 +86,7 @@ NSString *OpenDocumentTextType = @"org.oasis-open.opendocument.text";
             if (type1 == type2) return (NSComparisonResult)NSOrderedSame;
             if (UTTypeConformsTo((CFStringRef)type1, (CFStringRef)type2)) return (NSComparisonResult)NSOrderedAscending;
             if (UTTypeConformsTo((CFStringRef)type2, (CFStringRef)type1)) return (NSComparisonResult)NSOrderedDescending;
-            return ((NSUInteger)type1 < (NSUInteger)type2) ? (NSComparisonResult)NSOrderedAscending : (NSComparisonResult)NSOrderedDescending;
+            return (NSComparisonResult)(((NSUInteger)type1 < (NSUInteger)type2) ? (NSComparisonResult)NSOrderedAscending : (NSComparisonResult)NSOrderedDescending);
         }];
         [topologicallySortedReadableTypes retain];
     });

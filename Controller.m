@@ -54,6 +54,7 @@
 #import "TextEditDefaultsKeys.h"
 #import "TextEditErrors.h"
 #import "TextEditMisc.h"
+#import "TETextWatcher.h"
 
 static NSDictionary *defaultValues() {
     static NSDictionary *dict = nil;
@@ -117,7 +118,9 @@ static NSDictionary *defaultValues() {
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
     // To get service requests to go to the controller...
-    [NSApp setServicesProvider:self];
+	[[NSNotificationCenter defaultCenter] addObserver:[TETextWatcher class] selector:@selector(textViewDidChangeSelection:) name:NSTextViewDidChangeSelectionNotification object:nil];
+
+	[NSApp setServicesProvider:self];
 }
 
 /*** Services support ***/
