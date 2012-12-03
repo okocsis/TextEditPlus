@@ -50,6 +50,7 @@
 #import "TextEditErrors.h"
 #import "TextEditMisc.h"
 #import "Controller.h"
+#import "TETextUtils.h"
 
 @implementation LinePanelController
 
@@ -176,6 +177,158 @@
     if (![self selectLinesUsingDescription:[lineField stringValue] error:&error]) {
 	[[self window] presentError:error];
 	[[self window] makeKeyAndOrderFront:nil];
+    }
+}
+
+-(void) setLineNumberFromRange:(NSRange) someRange inView: target
+{	if (lineField && [target isKindOfClass:[NSTextView class]] && ![target isFieldEditor])
+	{	NSRange range = [self TE_lineNumberRangeFromCharacterRange: someRange inString: [target string]];
+		[lineField setStringValue:rangeSpecificationFromRange(range) ]; //rangeSpecificationFromRange(someRange)
+	}
+}
+
+///////////////////////////////////////////////////
+// TEGotoPanelController.m
+// TextExtras
+//
+// Copyright © 1996-2006, Mike Ferris.
+// All rights reserved.
+
+
+// A range specification is either a single integer or two colon-separated integers indicating first and last elements in a range.
+// A range specification is assumed to be "1" based and inclusive.  So the range specification "1:3" will translate to units 1, 2, and 3, or range {0, 3}.  The range specification "5" will be returned as {4, 1}.
+
+static NSString *rangeSpecificationFromRange(NSRange range) {
+    // Given a range, produce a range specification.
+    if (range.length < 2) {
+        return [NSString stringWithFormat:@"%lu", (range.location + 1)];
+    } else {
+        return [NSString stringWithFormat:@"%lu:%lu", (range.location + 1), NSMaxRange(range)];  // NSMaxRange(range) is already one bigger than it should be so we don't need to adjust it.
+    }
+}
+
+static NSRange rangeFromRangeSpecification(NSString *rangeSpec) {
+    // Given a range specification (a string containing either a single number or two numbers separated by a colon), return a range.
+    NSScanner *scanner = [NSScanner localizedScannerWithString:rangeSpec];
+    NSRange range;
+    unsigned endLoc;
+	
+    if (![scanner scanInt:(int *)(&(range.location))]) {
+        return NSMakeRange(NSNotFound, 0);
+    }
+    if ([scanner isAtEnd]) {
+        range.location--;
+        range.length = 1;
+        return range;
+    }
+	
+    if (![scanner scanString:@":" intoString:NULL] || ![scanner scanInt:(int *)(&(endLoc))]) {
+        return NSMakeRange(NSNotFound, 0);
+    }
+	
+    range.length = (endLoc + 1) - range.location;
+    range.location--;
+    return range;
+}
+
+#define UNICHAR_BUFF_SIZE 1024
+
+- (NSRange)TE_characterRangeForLineNumberRange:(NSRange)lineNumRange inString:(NSString *)string {
+    unsigned stopLineNum = NSMaxRange(lineNumRange);
+    unsigned curLineNum = 0;
+    unsigned startCharIndex = NSNotFound;
+    unichar buff[UNICHAR_BUFF_SIZE];
+    unsigned i, buffCount;
+    NSRange searchRange = NSMakeRange(0, [string length]);
+	
+    // Returned char range should start at beginning of line number lineNumRange.location and end at beginning of line number stopLineNum.
+    if (lineNumRange.location == 0) {
+        // Check for this case first since the loop won't.
+        startCharIndex = 0;
+    }
+    while (searchRange.length > 0) {
+        buffCount = ((searchRange.length > UNICHAR_BUFF_SIZE) ? UNICHAR_BUFF_SIZE : searchRange.length);
+        [string getCharacters:buff range:NSMakeRange(searchRange.location, buffCount)];
+        for (i=0; i<buffCount; i++) {
+            // We're counting paragraph separators here.  We want to notice when we hit lineNumRange.location and remember where the starting char index is.  We also want to notice when we reach the stopLineNum and return the result.
+            if (TE_IsHardLineBreakUnichar(buff[i], string, searchRange.location + i)) {
+                curLineNum++;
+                if (curLineNum == lineNumRange.location) {
+                    // The next line is the first line we need.
+                    startCharIndex = searchRange.location + i + 1;
+                }
+                if (curLineNum == stopLineNum) {
+                    return NSMakeRange(startCharIndex, (searchRange.location + i + 1) - startCharIndex);
+                }
+            }
+        }
+        // Skip the search range past the part we just did.
+        searchRange.location += buffCount;
+        searchRange.length -= buffCount;
+    }
+	
+    // If we're here, we didn't find the end of the line number range.
+    // searchRange.location == [string length] at this point.
+    if (startCharIndex == NSNotFound) {
+        // We didn't find the start of the line number range either, so return {EOT, 0}.
+		return NSMakeRange(searchRange.location, 0);
+    } else {
+        // We found the start, so return from there to the end of the text.
+        return NSMakeRange(startCharIndex, searchRange.location - startCharIndex);
+    }
+}
+
+- (NSRange)TE_lineNumberRangeFromCharacterRange:(NSRange )charRange inString:(NSString *)string {
+    unsigned stopCharIndex = NSMaxRange(charRange);
+    unsigned curLineNum = 0;
+    unsigned startLineNum = NSNotFound;
+    unichar buff[UNICHAR_BUFF_SIZE];
+    unsigned i, buffCount;
+    NSRange searchRange = NSMakeRange(0, [string length]);
+	
+    while (searchRange.length > 0) {
+        buffCount = ((searchRange.length > UNICHAR_BUFF_SIZE) ? UNICHAR_BUFF_SIZE : searchRange.length);
+        [string getCharacters:buff range:NSMakeRange(searchRange.location, buffCount)];
+        for (i=0; i<buffCount; i++) {
+            // We're counting paragraph separators here.  We want to notice when we hit charRange.location and remember what the line number is.  We also want to notice when we reach the stopCharIndex and return the result.
+            if (charRange.location == searchRange.location + i) {
+                startLineNum = curLineNum;
+                if (stopCharIndex == charRange.location) {
+                    return NSMakeRange(startLineNum, 1);
+                }
+            }
+            if (stopCharIndex == searchRange.location + i) {
+                unsigned stopLineNum;
+                if ((searchRange.location + i > 0) && TE_IsHardLineBreakUnichar([string characterAtIndex:searchRange.location + i - 1], string, searchRange.location + i - 1)) {
+                    stopLineNum = curLineNum;
+                } else {
+                    stopLineNum = curLineNum + 1;
+                }
+                return NSMakeRange(startLineNum, stopLineNum - startLineNum);
+            }
+            if (TE_IsHardLineBreakUnichar(buff[i], string, searchRange.location + i)) {
+                curLineNum++;
+            }
+        }
+        // Skip the search range past the part we just did.
+        searchRange.location += buffCount;
+        searchRange.length -= buffCount;
+    }
+	
+    // If we're here, we didn't find the end of the line number range.
+    // curLineNum == number of last line at this point.
+    if (startLineNum == NSNotFound) {
+        // We didn't find the start of the line number range either, so return {EOT, 0}.
+        return NSMakeRange(curLineNum, 0);
+    } else {
+        // We found the start, so return from there to the end of the text.
+        unsigned stopLineNum;
+        if ((searchRange.location > 0) && TE_IsHardLineBreakUnichar([string characterAtIndex:searchRange.location - 1], string, searchRange.location - 1)) {
+            stopLineNum = curLineNum;
+        } else {
+            stopLineNum = curLineNum + 1;
+        }
+        return NSMakeRange(startLineNum, stopLineNum - startLineNum);
     }
 }
 

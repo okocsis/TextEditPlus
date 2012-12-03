@@ -7,6 +7,7 @@
 #import "TETextUtils.h"
 #import <objc/objc-runtime.h>
 
+
 // ********************** Identifying paragraph boundaries **********************
 
 BOOL TE_IsParagraphSeparator(unichar uchar, NSString *str, unsigned index) {

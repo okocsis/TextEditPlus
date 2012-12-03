@@ -63,6 +63,10 @@
             }
         }
     }
+	if(1) // autoupdate linenumber
+	{	id lpc=[[NSApp delegate] lineController];
+		if(lpc) [lpc setLineNumberFromRange: selRange inView: textView];
+	}
 }
 
 @end

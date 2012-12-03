@@ -60,6 +60,10 @@
 		41FA793A0B95E61A00FA84AA /* PrintPanelAccessoryController.h in Headers */ = {isa = PBXBuildFile; fileRef = 41FA79380B95E61A00FA84AA /* PrintPanelAccessoryController.h */; };
 		41FA793B0B95E61A00FA84AA /* PrintPanelAccessoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FA79390B95E61A00FA84AA /* PrintPanelAccessoryController.m */; };
 		41FA79A10B95F0F300FA84AA /* PrintPanelAccessory.nib in Resources */ = {isa = PBXBuildFile; fileRef = 41FA799F0B95F0F300FA84AA /* PrintPanelAccessory.nib */; };
+		B2F74FD4166B8C450000740A /* TETextUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = B2F74FD0166B8C450000740A /* TETextUtils.h */; };
+		B2F74FD5166B8C450000740A /* TETextUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F74FD1166B8C450000740A /* TETextUtils.m */; };
+		B2F74FD6166B8C450000740A /* TETextWatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = B2F74FD2166B8C450000740A /* TETextWatcher.h */; };
+		B2F74FD7166B8C450000740A /* TETextWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F74FD3166B8C450000740A /* TETextWatcher.m */; };
 		FB69D020085E20E300646BBF /* DocumentWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = FB69D01E085E20E300646BBF /* DocumentWindowController.h */; };
 		FB69D021085E20E300646BBF /* DocumentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB69D01F085E20E300646BBF /* DocumentWindowController.m */; };
 		FBF176CA084E77CE005F6CEB /* DocumentController.h in Headers */ = {isa = PBXBuildFile; fileRef = FBF176C8084E77CE005F6CEB /* DocumentController.h */; };
@@ -125,6 +129,10 @@
 		92A68B0A02972957007F9DE6 /* EncodingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncodingManager.h; sourceTree = "<group>"; };
 		92A68B0B02972957007F9DE6 /* EncodingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncodingManager.m; sourceTree = "<group>"; };
 		92A68B1802972AB9007F9DE6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/SelectEncodingsPanel.nib; sourceTree = "<group>"; };
+		B2F74FD0166B8C450000740A /* TETextUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TETextUtils.h; sourceTree = "<group>"; };
+		B2F74FD1166B8C450000740A /* TETextUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TETextUtils.m; sourceTree = "<group>"; };
+		B2F74FD2166B8C450000740A /* TETextWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TETextWatcher.h; sourceTree = "<group>"; };
+		B2F74FD3166B8C450000740A /* TETextWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TETextWatcher.m; sourceTree = "<group>"; };
 		F549503200E2A3BB01CA0CA4 /* DocumentWindow.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = DocumentWindow.nib; sourceTree = "<group>"; };
 		FB69D01E085E20E300646BBF /* DocumentWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentWindowController.h; sourceTree = "<group>"; };
 		FB69D01F085E20E300646BBF /* DocumentWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentWindowController.m; sourceTree = "<group>"; };
@@ -182,6 +190,10 @@
 				413912140BD54AB700760A3D /* DocumentPropertiesPanelController.h */,
 				413912150BD54AB700760A3D /* DocumentPropertiesPanelController.m */,
 				6FE20907FE93D5F211CA2CEA /* ScalingScrollView.h */,
+				B2F74FD0166B8C450000740A /* TETextUtils.h */,
+				B2F74FD1166B8C450000740A /* TETextUtils.m */,
+				B2F74FD2166B8C450000740A /* TETextWatcher.h */,
+				B2F74FD3166B8C450000740A /* TETextWatcher.m */,
 				6FE208FEFE93D5F211CA2CEA /* ScalingScrollView.m */,
 				6FE20905FE93D5F211CA2CEA /* MultiplePageView.h */,
 				6FE208FFFE93D5F211CA2CEA /* MultiplePageView.m */,
@@ -296,6 +308,8 @@
 				4116BCFE1317428900C7C8C1 /* PrintingTextView.h in Headers */,
 				07C9E83C13D8C5A9004E932B /* JJTypesetter.h in Headers */,
 				0744194F150CD92F0073CF14 /* UniversalDetector.h in Headers */,
+				B2F74FD4166B8C450000740A /* TETextUtils.h in Headers */,
+				B2F74FD6166B8C450000740A /* TETextWatcher.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -329,7 +343,7 @@
 		6FE208F8FE93D5F211CA2CEA /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0430;
+				LastUpgradeCheck = 0450;
 			};
 			buildConfigurationList = 41534B9208A2B299002069FE /* Build configuration list for PBXProject "TextEdit" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -424,6 +438,8 @@
 				176A30490E23EB0600857A3B /* FontNameTransformer.m in Sources */,
 				4116BCFF1317428900C7C8C1 /* PrintingTextView.m in Sources */,
 				07C9E83D13D8C5A9004E932B /* JJTypesetter.m in Sources */,
+				B2F74FD5166B8C450000740A /* TETextUtils.m in Sources */,
+				B2F74FD7166B8C450000740A /* TETextWatcher.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -542,6 +558,7 @@
 			buildSettings = {
 				ARCHS = "$(NATIVE_ARCH_ACTUAL)";
 				BUILD_PHASING = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 288;
 				FRAMEWORK_SEARCH_PATHS = "";
@@ -591,6 +608,7 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				BUILD_PHASING = YES;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				CURRENT_PROJECT_VERSION = 288;
 				FRAMEWORK_SEARCH_PATHS = "";
