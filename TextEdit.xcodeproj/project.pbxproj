@@ -60,6 +60,10 @@
 		41FA793A0B95E61A00FA84AA /* PrintPanelAccessoryController.h in Headers */ = {isa = PBXBuildFile; fileRef = 41FA79380B95E61A00FA84AA /* PrintPanelAccessoryController.h */; };
 		41FA793B0B95E61A00FA84AA /* PrintPanelAccessoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 41FA79390B95E61A00FA84AA /* PrintPanelAccessoryController.m */; };
 		41FA79A10B95F0F300FA84AA /* PrintPanelAccessory.nib in Resources */ = {isa = PBXBuildFile; fileRef = 41FA799F0B95F0F300FA84AA /* PrintPanelAccessory.nib */; };
+		B28C03101679CF1F00CD7C38 /* NSTextView_TETextExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = B28C030E1679CF1F00CD7C38 /* NSTextView_TETextExtras.h */; };
+		B28C03111679CF1F00CD7C38 /* NSTextView_TETextExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = B28C030F1679CF1F00CD7C38 /* NSTextView_TETextExtras.m */; };
+		B28C03151679D3FC00CD7C38 /* TEFoundationExtras.h in Headers */ = {isa = PBXBuildFile; fileRef = B28C03131679D3FC00CD7C38 /* TEFoundationExtras.h */; };
+		B28C03161679D3FC00CD7C38 /* TEFoundationExtras.m in Sources */ = {isa = PBXBuildFile; fileRef = B28C03141679D3FC00CD7C38 /* TEFoundationExtras.m */; };
 		B2F74FD4166B8C450000740A /* TETextUtils.h in Headers */ = {isa = PBXBuildFile; fileRef = B2F74FD0166B8C450000740A /* TETextUtils.h */; };
 		B2F74FD5166B8C450000740A /* TETextUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F74FD1166B8C450000740A /* TETextUtils.m */; };
 		B2F74FD6166B8C450000740A /* TETextWatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = B2F74FD2166B8C450000740A /* TETextWatcher.h */; };
@@ -129,6 +133,10 @@
 		92A68B0A02972957007F9DE6 /* EncodingManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncodingManager.h; sourceTree = "<group>"; };
 		92A68B0B02972957007F9DE6 /* EncodingManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncodingManager.m; sourceTree = "<group>"; };
 		92A68B1802972AB9007F9DE6 /* English */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; name = English; path = English.lproj/SelectEncodingsPanel.nib; sourceTree = "<group>"; };
+		B28C030E1679CF1F00CD7C38 /* NSTextView_TETextExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSTextView_TETextExtras.h; sourceTree = "<group>"; };
+		B28C030F1679CF1F00CD7C38 /* NSTextView_TETextExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSTextView_TETextExtras.m; sourceTree = "<group>"; };
+		B28C03131679D3FC00CD7C38 /* TEFoundationExtras.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TEFoundationExtras.h; sourceTree = "<group>"; };
+		B28C03141679D3FC00CD7C38 /* TEFoundationExtras.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TEFoundationExtras.m; sourceTree = "<group>"; };
 		B2F74FD0166B8C450000740A /* TETextUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TETextUtils.h; sourceTree = "<group>"; };
 		B2F74FD1166B8C450000740A /* TETextUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TETextUtils.m; sourceTree = "<group>"; };
 		B2F74FD2166B8C450000740A /* TETextWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TETextWatcher.h; sourceTree = "<group>"; };
@@ -177,6 +185,8 @@
 				07C9E83A13D8C5A9004E932B /* JJTypesetter.h */,
 				07C9E83B13D8C5A9004E932B /* JJTypesetter.m */,
 				6FE20936FE93D5F211CA2CEA /* README.rtf */,
+				B28C030E1679CF1F00CD7C38 /* NSTextView_TETextExtras.h */,
+				B28C030F1679CF1F00CD7C38 /* NSTextView_TETextExtras.m */,
 				6FE20903FE93D5F211CA2CEA /* Document.h */,
 				6FE208FBFE93D5F211CA2CEA /* Document.m */,
 				FB69D01E085E20E300646BBF /* DocumentWindowController.h */,
@@ -190,6 +200,8 @@
 				413912140BD54AB700760A3D /* DocumentPropertiesPanelController.h */,
 				413912150BD54AB700760A3D /* DocumentPropertiesPanelController.m */,
 				6FE20907FE93D5F211CA2CEA /* ScalingScrollView.h */,
+				B28C03131679D3FC00CD7C38 /* TEFoundationExtras.h */,
+				B28C03141679D3FC00CD7C38 /* TEFoundationExtras.m */,
 				B2F74FD0166B8C450000740A /* TETextUtils.h */,
 				B2F74FD1166B8C450000740A /* TETextUtils.m */,
 				B2F74FD2166B8C450000740A /* TETextWatcher.h */,
@@ -310,6 +322,8 @@
 				0744194F150CD92F0073CF14 /* UniversalDetector.h in Headers */,
 				B2F74FD4166B8C450000740A /* TETextUtils.h in Headers */,
 				B2F74FD6166B8C450000740A /* TETextWatcher.h in Headers */,
+				B28C03101679CF1F00CD7C38 /* NSTextView_TETextExtras.h in Headers */,
+				B28C03151679D3FC00CD7C38 /* TEFoundationExtras.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -440,6 +454,8 @@
 				07C9E83D13D8C5A9004E932B /* JJTypesetter.m in Sources */,
 				B2F74FD5166B8C450000740A /* TETextUtils.m in Sources */,
 				B2F74FD7166B8C450000740A /* TETextWatcher.m in Sources */,
+				B28C03111679CF1F00CD7C38 /* NSTextView_TETextExtras.m in Sources */,
+				B28C03161679D3FC00CD7C38 /* TEFoundationExtras.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
