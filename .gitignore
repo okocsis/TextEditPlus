@@ -1,3 +1,8 @@
 build/*
 *jjgod.*
 .DS_Store
+*.xcuserstate
+
+*.xcscheme
+
+TextEdit.xcodeproj/xcuserdata/okocsis.xcuserdatad/xcschemes/xcschememanagement.plist
