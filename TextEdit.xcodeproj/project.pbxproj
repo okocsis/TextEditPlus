@@ -70,6 +70,9 @@
 		B2F74FD7166B8C450000740A /* TETextWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F74FD3166B8C450000740A /* TETextWatcher.m */; };
 		C318FADC168AA73B0062C9CA /* SpeakController.h in Headers */ = {isa = PBXBuildFile; fileRef = C318FADA168AA73B0062C9CA /* SpeakController.h */; };
 		C318FADD168AA73B0062C9CA /* SpeakController.m in Sources */ = {isa = PBXBuildFile; fileRef = C318FADB168AA73B0062C9CA /* SpeakController.m */; };
+		C32F5EF7168B1FE900A04D5F /* reader.bmp in Resources */ = {isa = PBXBuildFile; fileRef = C32F5EF6168B1FE900A04D5F /* reader.bmp */; };
+		C32F5EF9168B201000A04D5F /* reader.png in Resources */ = {isa = PBXBuildFile; fileRef = C32F5EF8168B201000A04D5F /* reader.png */; };
+		C32F5EFB168B208900A04D5F /* readerIkon.png in Resources */ = {isa = PBXBuildFile; fileRef = C32F5EFA168B208900A04D5F /* readerIkon.png */; };
 		FB69D020085E20E300646BBF /* DocumentWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = FB69D01E085E20E300646BBF /* DocumentWindowController.h */; };
 		FB69D021085E20E300646BBF /* DocumentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB69D01F085E20E300646BBF /* DocumentWindowController.m */; };
 		FBF176CA084E77CE005F6CEB /* DocumentController.h in Headers */ = {isa = PBXBuildFile; fileRef = FBF176C8084E77CE005F6CEB /* DocumentController.h */; };
@@ -145,7 +148,9 @@
 		B2F74FD3166B8C450000740A /* TETextWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TETextWatcher.m; sourceTree = "<group>"; };
 		C318FADA168AA73B0062C9CA /* SpeakController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakController.h; sourceTree = "<group>"; };
 		C318FADB168AA73B0062C9CA /* SpeakController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakController.m; sourceTree = "<group>"; };
-		C318FADF168ABEA10062C9CA /* DelegatedDocumentWindowControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DelegatedDocumentWindowControllerProtocol.h; sourceTree = "<group>"; };
+		C32F5EF6168B1FE900A04D5F /* reader.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = reader.bmp; sourceTree = "<group>"; };
+		C32F5EF8168B201000A04D5F /* reader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reader.png; sourceTree = "<group>"; };
+		C32F5EFA168B208900A04D5F /* readerIkon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = readerIkon.png; sourceTree = "<group>"; };
 		F549503200E2A3BB01CA0CA4 /* DocumentWindow.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = DocumentWindow.nib; sourceTree = "<group>"; };
 		FB69D01E085E20E300646BBF /* DocumentWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentWindowController.h; sourceTree = "<group>"; };
 		FB69D01F085E20E300646BBF /* DocumentWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentWindowController.m; sourceTree = "<group>"; };
@@ -186,6 +191,8 @@
 		6FE208F9FE93D5F211CA2CEA /* TextEdit */ = {
 			isa = PBXGroup;
 			children = (
+				C32F5EF8168B201000A04D5F /* reader.png */,
+				C32F5EF6168B1FE900A04D5F /* reader.bmp */,
 				C318FADA168AA73B0062C9CA /* SpeakController.h */,
 				C318FADB168AA73B0062C9CA /* SpeakController.m */,
 				0744194E150CD92F0073CF14 /* UniversalDetector.h */,
@@ -196,7 +203,6 @@
 				B28C030F1679CF1F00CD7C38 /* NSTextView_TETextExtras.m */,
 				6FE20903FE93D5F211CA2CEA /* Document.h */,
 				6FE208FBFE93D5F211CA2CEA /* Document.m */,
-				C318FADF168ABEA10062C9CA /* DelegatedDocumentWindowControllerProtocol.h */,
 				FB69D01E085E20E300646BBF /* DocumentWindowController.h */,
 				FB69D01F085E20E300646BBF /* DocumentWindowController.m */,
 				FBF176C8084E77CE005F6CEB /* DocumentController.h */,
@@ -260,6 +266,7 @@
 		6FE20917FE93D5F211CA2CEA /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				C32F5EFA168B208900A04D5F /* readerIkon.png */,
 				6FE2091FFE93D5F211CA2CEA /* Edit.icns */,
 				6FE2091CFE93D5F211CA2CEA /* txt.icns */,
 				6FE20922FE93D5F211CA2CEA /* rtf.icns */,
@@ -339,9 +346,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		415B215A07BC0732009CEA53 /* TextEdit */ = {
+		415B215A07BC0732009CEA53 /* TextReader */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 41534B8E08A2B299002069FE /* Build configuration list for PBXNativeTarget "TextEdit" */;
+			buildConfigurationList = 41534B8E08A2B299002069FE /* Build configuration list for PBXNativeTarget "TextReader" */;
 			buildPhases = (
 				415B215B07BC0732009CEA53 /* Headers */,
 				415B216207BC0732009CEA53 /* Resources */,
@@ -354,7 +361,7 @@
 			);
 			dependencies = (
 			);
-			name = TextEdit;
+			name = TextReader;
 			productInstallPath = "$(SYSTEM_APPS_DIR)";
 			productName = TextEdit;
 			productReference = 415B218607BC0732009CEA53 /* TextEdit.app */;
@@ -382,7 +389,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				415B215A07BC0732009CEA53 /* TextEdit */,
+				415B215A07BC0732009CEA53 /* TextReader */,
 			);
 		};
 /* End PBXProject section */
@@ -414,6 +421,9 @@
 				419167BC0B78226D00B4CA33 /* SelectLinePanel.nib in Resources */,
 				41FA79A10B95F0F300FA84AA /* PrintPanelAccessory.nib in Resources */,
 				417C5C210B962CDF008C4735 /* PrintPanelAccessory.strings in Resources */,
+				C32F5EF7168B1FE900A04D5F /* reader.bmp in Resources */,
+				C32F5EF9168B201000A04D5F /* reader.png in Resources */,
+				C32F5EFB168B208900A04D5F /* readerIkon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -694,7 +704,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		41534B8E08A2B299002069FE /* Build configuration list for PBXNativeTarget "TextEdit" */ = {
+		41534B8E08A2B299002069FE /* Build configuration list for PBXNativeTarget "TextReader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				41534B8F08A2B299002069FE /* Debug */,

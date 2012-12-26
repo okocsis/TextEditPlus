@@ -48,10 +48,10 @@
 
 #import <Cocoa/Cocoa.h>
 #import "SpeakController.h"
-#import "DelegatedDocumentWindowControllerProtocol.h"
+
 @class Preferences, DocumentPropertiesPanelController, LinePanelController, DocumentWindowController;
 
-@interface Controller : NSObject<DelegatedDocumentWindowControllerProtocol> {
+@interface Controller : NSObject {
     IBOutlet Preferences *preferencesController;
     IBOutlet DocumentPropertiesPanelController *propertiesController;
     IBOutlet LinePanelController *lineController;

@@ -16,9 +16,11 @@
     BOOL _isPaused;
     char _speechBoundary;
     
-    NSTextView* currentTextView;
+    IBOutlet NSTextView* currentTextView;
 }
-@property (nonatomic,retain) NSTextView* currentTextView;
+
+
+@property (nonatomic,retain) IBOutlet NSTextView* currentTextView;
 - (IBAction)speak:(id)sender;
 - (IBAction)pauseSpeak:(id)sender;
 - (IBAction)stopSpeak:(id)sender;

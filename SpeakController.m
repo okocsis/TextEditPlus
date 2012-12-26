@@ -27,6 +27,10 @@
 
 - (void)dealloc
 {
+    if ([synth isSpeaking])
+    {
+        [synth stopSpeakingAtBoundary:NSSpeechImmediateBoundary];
+    }
     [synth release];
     [super dealloc];
 }

@@ -1710,9 +1710,6 @@
 			<object class="NSCustomObject" id="350302440">
 				<string key="NSClassName">DocumentPropertiesPanelController</string>
 			</object>
-			<object class="NSCustomObject" id="566433891">
-				<string key="NSClassName">SpeakController</string>
-			</object>
 			<object class="NSMenu" id="20454229">
 				<string key="NSTitle"/>
 				<object class="NSMutableArray" key="NSMenuItems">
@@ -1898,7 +1895,6 @@
 								</object>
 								<reference key="NSMenuFont" ref="174385830"/>
 							</object>
-							<int key="NSSelectedIndex">2</int>
 							<bool key="NSPullDown">YES</bool>
 							<int key="NSPreferredEdge">1</int>
 							<bool key="NSUsesItemFromMenu">YES</bool>
@@ -2730,6 +2726,14 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
+						<string key="label">play:</string>
+						<reference key="source" ref="128678659"/>
+						<reference key="destination" ref="884411152"/>
+					</object>
+					<int key="connectionID">881</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBActionConnection" key="connection">
 						<string key="label">addFontTrait:</string>
 						<reference key="source" ref="317709653"/>
 						<reference key="destination" ref="682773077"/>
@@ -2810,22 +2814,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">speakController</string>
-						<reference key="source" ref="186830332"/>
-						<reference key="destination" ref="566433891"/>
-					</object>
-					<int key="connectionID">841</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">sharedSpeakController</string>
-						<reference key="source" ref="186830332"/>
-						<reference key="destination" ref="566433891"/>
-					</object>
-					<int key="connectionID">843</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">pullDownView</string>
 						<reference key="source" ref="186830332"/>
 						<reference key="destination" ref="336616247"/>
@@ -2839,14 +2827,6 @@
 						<reference key="destination" ref="29368650"/>
 					</object>
 					<int key="connectionID">652</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">speakController</string>
-						<reference key="source" ref="557708507"/>
-						<reference key="destination" ref="566433891"/>
-					</object>
-					<int key="connectionID">842</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
@@ -2863,70 +2843,6 @@
 						<reference key="destination" ref="900420700"/>
 					</object>
 					<int key="connectionID">646</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">speak:</string>
-						<reference key="source" ref="566433891"/>
-						<reference key="destination" ref="884411152"/>
-					</object>
-					<int key="connectionID">839</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">segmentPushed:</string>
-						<reference key="source" ref="566433891"/>
-						<reference key="destination" ref="514716138"/>
-					</object>
-					<int key="connectionID">844</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">pauseSpeak:</string>
-						<reference key="source" ref="566433891"/>
-						<reference key="destination" ref="937880272"/>
-					</object>
-					<int key="connectionID">845</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">stopSpeak:</string>
-						<reference key="source" ref="566433891"/>
-						<reference key="destination" ref="792389069"/>
-					</object>
-					<int key="connectionID">846</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">segmentPushed:</string>
-						<reference key="source" ref="566433891"/>
-						<reference key="destination" ref="633999862"/>
-					</object>
-					<int key="connectionID">850</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">pauseByWord:</string>
-						<reference key="source" ref="566433891"/>
-						<reference key="destination" ref="476229619"/>
-					</object>
-					<int key="connectionID">877</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">pauseBysentece:</string>
-						<reference key="source" ref="566433891"/>
-						<reference key="destination" ref="234072766"/>
-					</object>
-					<int key="connectionID">878</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBActionConnection" key="connection">
-						<string key="label">pauseImmediately:</string>
-						<reference key="source" ref="566433891"/>
-						<reference key="destination" ref="613740272"/>
-					</object>
-					<int key="connectionID">879</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -4193,11 +4109,6 @@
 						<reference key="parent" ref="977586617"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">828</int>
-						<reference key="object" ref="566433891"/>
-						<reference key="parent" ref="0"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">829</int>
 						<reference key="object" ref="77757873"/>
 						<object class="NSMutableArray" key="children">
@@ -4536,7 +4447,6 @@
 					<string>818.IBPluginDependency</string>
 					<string>820.IBPluginDependency</string>
 					<string>822.IBPluginDependency</string>
-					<string>828.IBPluginDependency</string>
 					<string>829.IBPluginDependency</string>
 					<string>830.IBPluginDependency</string>
 					<string>831.IBNSSegmentedControlInspectorSelectedSegmentMetadataKey</string>
@@ -4563,7 +4473,6 @@
 				</object>
 				<object class="NSArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
-					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -4794,7 +4703,7 @@
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">879</int>
+			<int key="maxID">881</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">

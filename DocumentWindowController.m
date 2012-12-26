@@ -83,19 +83,17 @@
 
 
 @implementation DocumentWindowController
+@synthesize currentTextView, speakController, pullDownView, segmentView;
 
 - (id)init {
     if (self = [super initWithWindowNibName:@"DocumentWindow"]) {
 	layoutMgr = [[NSLayoutManager allocWithZone:[self zone]] init];
 	[layoutMgr setDelegate:self];
 	[layoutMgr setAllowsNonContiguousLayout:YES];
-    nsAppSDelegate = (id <DelegatedDocumentWindowControllerProtocol>)[NSApplication sharedApplication].delegate;
-    [nsAppSDelegate setDelegatedDocumentWindowController:self];
-    _segmentView = nsAppSDelegate.segmentView;
-    _pullDownView = nsAppSDelegate.pullDownView;
-    _speakController = nsAppSDelegate.sharedSpeakController;
+    
+
     }
-        return self;
+    return self;
 }
 
 
@@ -179,8 +177,9 @@
 
 - (NSTextView *)firstTextView {
     NSTextView* tempTextView = [[self layoutManager] firstTextView];
-    _speakController.currentTextView = tempTextView;
-    tempTextView.delegate = _speakController;
+    currentTextView = tempTextView;
+    currentTextView.delegate = speakController;
+    speakController.currentTextView = self.currentTextView;
     return  tempTextView;
 }
 
@@ -1193,7 +1192,7 @@
                                           paleteLabel:@"Reader controll"
                                               toolTip:@"start pause stop speak"
                                                target:self
-                                          itemContent:_segmentView
+                                          itemContent:segmentView
                                                action:nil
                                                  menu:nil];
     }
@@ -1205,7 +1204,7 @@
                                           paleteLabel:@"Pull Down"
                                               toolTip:@"Pull down menu"
                                                target:self
-                                          itemContent:_pullDownView
+                                          itemContent:pullDownView
                                                action:nil
                                                  menu:nil];
     }

@@ -105,8 +105,7 @@ static NSDictionary *defaultValues() {
 
 @synthesize preferencesController, propertiesController, lineController;
 @synthesize delegatedDocumentWindowController;
-@synthesize segmentView, pullDownView;
-@synthesize sharedSpeakController;
+
 
 -(void) setDelegatedDocumentWindowController:(DocumentWindowController *)inDelegatedDocumentWindowController
 {

@@ -47,7 +47,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "ScalingScrollView.h"
-#import "DelegatedDocumentWindowControllerProtocol.h"
+
 #import "SpeakController.h"
 
 @interface DocumentWindowController : NSWindowController <NSLayoutManagerDelegate, NSTextViewDelegate, NSToolbarDelegate, NSApplicationDelegate> {
@@ -57,12 +57,17 @@
     BOOL rulerIsBeingDisplayed;
     BOOL isSettingSize;
     
+    IBOutlet NSTextView* currentTextView;
     IBOutlet NSToolbar* toolbar;
-    NSView* _segmentView;
-    NSView* _pullDownView;
-    SpeakController* _speakController;
-    id <DelegatedDocumentWindowControllerProtocol> nsAppSDelegate;
+    IBOutlet NSView* segmentView;
+    IBOutlet NSView* pullDownView;
+    IBOutlet SpeakController* speakController;
+
 }
+@property (nonatomic,retain) IBOutlet NSView* segmentView;
+@property (nonatomic,retain) IBOutlet NSView* pullDownView;
+@property (nonatomic, retain) IBOutlet NSTextView* currentTextView;
+@property (nonatomic, retain) IBOutlet SpeakController* speakController;
 
 // Convenience initializer. Loads the correct nib automatically.
 - (id)init;

@@ -830,7 +830,10 @@ CGFloat defaultTextPadding(void) {
     NSArray *myControllers = [self windowControllers];
     
     // If this document displaced a transient document, it will already have been assigned a window controller. If that is not the case, create one.
-    if ([myControllers count] == 0) {
+    if ([myControllers count] == 0)
+    {
+        //ide kell kod
+        
         [self addWindowController:[[[DocumentWindowController allocWithZone:[self zone]] init] autorelease]];
     }
 }
