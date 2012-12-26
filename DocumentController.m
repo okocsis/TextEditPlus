@@ -66,12 +66,14 @@
 @end
 
 @implementation DocumentController
+@synthesize speakController;
 
 - (void)awakeFromNib {
     [self bind:@"autosavingDelay" toObject:[NSUserDefaultsController sharedUserDefaultsController] withKeyPath:@"values." AutosavingDelay options:nil];
     customOpenSettings = [[NSMutableDictionary alloc] init];
     transientDocumentLock = [[NSLock alloc] init];
     displayDocumentLock = [[NSLock alloc] init];
+    
 }
 
 - (void)dealloc {
@@ -181,6 +183,7 @@
     } else {
         [self performSelectorOnMainThread:_cmd withObject:doc waitUntilDone:YES];
     }
+    
 }
 
 - (void)replaceTransientDocument:(NSArray *)documents {

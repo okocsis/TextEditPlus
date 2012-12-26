@@ -47,8 +47,10 @@
 
 #import <Cocoa/Cocoa.h>
 #import "ScalingScrollView.h"
+#import "DelegatedDocumentWindowControllerProtocol.h"
+#import "SpeakController.h"
 
-@interface DocumentWindowController : NSWindowController <NSLayoutManagerDelegate, NSTextViewDelegate, NSToolbarDelegate> {
+@interface DocumentWindowController : NSWindowController <NSLayoutManagerDelegate, NSTextViewDelegate, NSToolbarDelegate, NSApplicationDelegate> {
     IBOutlet ScalingScrollView *scrollView;
     NSLayoutManager *layoutMgr;
     BOOL hasMultiplePages;
@@ -56,7 +58,10 @@
     BOOL isSettingSize;
     
     IBOutlet NSToolbar* toolbar;
-    IBOutlet NSView* segmentView;
+    NSView* _segmentView;
+    NSView* _pullDownView;
+    SpeakController* _speakController;
+    id <DelegatedDocumentWindowControllerProtocol> nsAppSDelegate;
 }
 
 // Convenience initializer. Loads the correct nib automatically.

@@ -52,6 +52,7 @@
 #import "TextEditMisc.h"
 #import "TextEditErrors.h"
 #import "JJTypesetter.h"
+#import "TETextWatcher.h"
 
 @interface DocumentWindowController(Private)
 
@@ -88,9 +89,15 @@
 	layoutMgr = [[NSLayoutManager allocWithZone:[self zone]] init];
 	[layoutMgr setDelegate:self];
 	[layoutMgr setAllowsNonContiguousLayout:YES];
+    nsAppSDelegate = (id <DelegatedDocumentWindowControllerProtocol>)[NSApplication sharedApplication].delegate;
+    [nsAppSDelegate setDelegatedDocumentWindowController:self];
+    _segmentView = nsAppSDelegate.segmentView;
+    _pullDownView = nsAppSDelegate.pullDownView;
+    _speakController = nsAppSDelegate.sharedSpeakController;
     }
-    return self;
+        return self;
 }
+
 
 - (void)dealloc {
     if ([self document]) [self setDocument:nil];
@@ -171,7 +178,10 @@
 }
 
 - (NSTextView *)firstTextView {
-    return [[self layoutManager] firstTextView];
+    NSTextView* tempTextView = [[self layoutManager] firstTextView];
+    _speakController.currentTextView = tempTextView;
+    tempTextView.delegate = _speakController;
+    return  tempTextView;
 }
 
 - (void)setupInitialTextViewSharedState {
@@ -686,6 +696,8 @@
     [scrollView addObserver:self forKeyPath:@"scaleFactor" options:0 context:NULL];
     [[scrollView verticalScroller] addObserver:self forKeyPath:@"scrollerStyle" options:0 context:NULL];
     [[[self document] undoManager] removeAllActions];
+    
+   
 }
 
 - (void)setDocumentEdited:(BOOL)edited {
@@ -1071,6 +1083,7 @@
 #pragma mark Toolbar code
 
 #define kSegmentToolbarItemID   @"Segment"
+#define kPullDownToolbarItemID   @"PullDown"
 #define kPlayToolbarItemID      @"Play"
 #define kStopToolbarItemID     @"Stop"
 #define kPauseToolbarItemID    @"Pause"
@@ -1180,22 +1193,22 @@
                                           paleteLabel:@"Reader controll"
                                               toolTip:@"start pause stop speak"
                                                target:self
-                                          itemContent:segmentView
+                                          itemContent:_segmentView
                                                action:nil
                                                  menu:nil];
     }
-//    else if ([itemIdentifier isEqualToString:kFontSizeToolbarItemID])
-//    {
-//        // 2) Font size toolbar item
-//        toolbarItem = [self toolbarItemWithIdentifier:kFontSizeToolbarItemID
-//                                                label:@"Font Size"
-//                                          paleteLabel:@"Font Size"
-//                                              toolTip:@"Grow or shrink the size of your font"
-//                                               target:self
-//                                          itemContent:fontSizeView
-//                                               action:nil
-//                                                 menu:fontSizeMenu];
-//    }
+    else if ([itemIdentifier isEqualToString:kPullDownToolbarItemID])
+    {
+        // 2) Font size toolbar item
+        toolbarItem = [self toolbarItemWithIdentifier:kPullDownToolbarItemID
+                                                label:@"Pull Down"
+                                          paleteLabel:@"Pull Down"
+                                              toolTip:@"Pull down menu"
+                                               target:self
+                                          itemContent:_pullDownView
+                                               action:nil
+                                                 menu:nil];
+    }
 //    else if ([itemIdentifier isEqualToString:kBlueLetterToolbarItemID])
 //    {
 //        // 3) Blue text toolbar item
@@ -1222,9 +1235,7 @@
 - (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar *)toolbar
 {
     return [NSArray arrayWithObjects:   kSegmentToolbarItemID,
-            kPlayToolbarItemID,
-            kStopToolbarItemID,
-            kPauseToolbarItemID,
+            kPullDownToolbarItemID,
             NSToolbarPrintItemIdentifier,
             nil];
     // note:

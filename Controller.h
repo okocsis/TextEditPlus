@@ -47,17 +47,22 @@
  */
 
 #import <Cocoa/Cocoa.h>
+#import "SpeakController.h"
+#import "DelegatedDocumentWindowControllerProtocol.h"
+@class Preferences, DocumentPropertiesPanelController, LinePanelController, DocumentWindowController;
 
-@class Preferences, DocumentPropertiesPanelController, LinePanelController;
-
-@interface Controller : NSObject {
+@interface Controller : NSObject<DelegatedDocumentWindowControllerProtocol> {
     IBOutlet Preferences *preferencesController;
     IBOutlet DocumentPropertiesPanelController *propertiesController;
     IBOutlet LinePanelController *lineController;
+    IBOutlet SpeakController* speakController;
+    
 }
 
 @property (assign) Preferences *preferencesController;
 @property (assign) DocumentPropertiesPanelController *propertiesController;
 @property (assign) LinePanelController *lineController;
+
+@property (assign, readonly) DocumentWindowController* delegatedDocumentWindowController; // has implemented setter method
 
 @end

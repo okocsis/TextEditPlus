@@ -48,7 +48,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import "Document.h"
-
+#import "SpeakController.h"
 
 // NSDocumentController is subclassed to provide for modification of the open panel. Normally, there is no need to subclass the document controller.
 @interface DocumentController : NSDocumentController {
@@ -57,6 +57,7 @@
     NSLock *transientDocumentLock;
     NSLock *displayDocumentLock;
 }
+@property (assign) IBOutlet  SpeakController* speakController;
 
 + (NSView *)encodingAccessory:(NSUInteger)encoding includeDefaultEntry:(BOOL)includeDefaultItem encodingPopUp:(NSPopUpButton **)popup checkBox:(NSButton **)button;
 

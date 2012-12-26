@@ -68,6 +68,8 @@
 		B2F74FD5166B8C450000740A /* TETextUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F74FD1166B8C450000740A /* TETextUtils.m */; };
 		B2F74FD6166B8C450000740A /* TETextWatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = B2F74FD2166B8C450000740A /* TETextWatcher.h */; };
 		B2F74FD7166B8C450000740A /* TETextWatcher.m in Sources */ = {isa = PBXBuildFile; fileRef = B2F74FD3166B8C450000740A /* TETextWatcher.m */; };
+		C318FADC168AA73B0062C9CA /* SpeakController.h in Headers */ = {isa = PBXBuildFile; fileRef = C318FADA168AA73B0062C9CA /* SpeakController.h */; };
+		C318FADD168AA73B0062C9CA /* SpeakController.m in Sources */ = {isa = PBXBuildFile; fileRef = C318FADB168AA73B0062C9CA /* SpeakController.m */; };
 		FB69D020085E20E300646BBF /* DocumentWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = FB69D01E085E20E300646BBF /* DocumentWindowController.h */; };
 		FB69D021085E20E300646BBF /* DocumentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB69D01F085E20E300646BBF /* DocumentWindowController.m */; };
 		FBF176CA084E77CE005F6CEB /* DocumentController.h in Headers */ = {isa = PBXBuildFile; fileRef = FBF176C8084E77CE005F6CEB /* DocumentController.h */; };
@@ -141,6 +143,9 @@
 		B2F74FD1166B8C450000740A /* TETextUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TETextUtils.m; sourceTree = "<group>"; };
 		B2F74FD2166B8C450000740A /* TETextWatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TETextWatcher.h; sourceTree = "<group>"; };
 		B2F74FD3166B8C450000740A /* TETextWatcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TETextWatcher.m; sourceTree = "<group>"; };
+		C318FADA168AA73B0062C9CA /* SpeakController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SpeakController.h; sourceTree = "<group>"; };
+		C318FADB168AA73B0062C9CA /* SpeakController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakController.m; sourceTree = "<group>"; };
+		C318FADF168ABEA10062C9CA /* DelegatedDocumentWindowControllerProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DelegatedDocumentWindowControllerProtocol.h; sourceTree = "<group>"; };
 		F549503200E2A3BB01CA0CA4 /* DocumentWindow.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = DocumentWindow.nib; sourceTree = "<group>"; };
 		FB69D01E085E20E300646BBF /* DocumentWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentWindowController.h; sourceTree = "<group>"; };
 		FB69D01F085E20E300646BBF /* DocumentWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentWindowController.m; sourceTree = "<group>"; };
@@ -181,6 +186,8 @@
 		6FE208F9FE93D5F211CA2CEA /* TextEdit */ = {
 			isa = PBXGroup;
 			children = (
+				C318FADA168AA73B0062C9CA /* SpeakController.h */,
+				C318FADB168AA73B0062C9CA /* SpeakController.m */,
 				0744194E150CD92F0073CF14 /* UniversalDetector.h */,
 				07C9E83A13D8C5A9004E932B /* JJTypesetter.h */,
 				07C9E83B13D8C5A9004E932B /* JJTypesetter.m */,
@@ -189,6 +196,7 @@
 				B28C030F1679CF1F00CD7C38 /* NSTextView_TETextExtras.m */,
 				6FE20903FE93D5F211CA2CEA /* Document.h */,
 				6FE208FBFE93D5F211CA2CEA /* Document.m */,
+				C318FADF168ABEA10062C9CA /* DelegatedDocumentWindowControllerProtocol.h */,
 				FB69D01E085E20E300646BBF /* DocumentWindowController.h */,
 				FB69D01F085E20E300646BBF /* DocumentWindowController.m */,
 				FBF176C8084E77CE005F6CEB /* DocumentController.h */,
@@ -324,6 +332,7 @@
 				B2F74FD6166B8C450000740A /* TETextWatcher.h in Headers */,
 				B28C03101679CF1F00CD7C38 /* NSTextView_TETextExtras.h in Headers */,
 				B28C03151679D3FC00CD7C38 /* TEFoundationExtras.h in Headers */,
+				C318FADC168AA73B0062C9CA /* SpeakController.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -456,6 +465,7 @@
 				B2F74FD7166B8C450000740A /* TETextWatcher.m in Sources */,
 				B28C03111679CF1F00CD7C38 /* NSTextView_TETextExtras.m in Sources */,
 				B28C03161679D3FC00CD7C38 /* TEFoundationExtras.m in Sources */,
+				C318FADD168AA73B0062C9CA /* SpeakController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

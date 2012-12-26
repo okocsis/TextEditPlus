@@ -17,55 +17,55 @@
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "DocumentWindowController.m"
-         timestampString = "378183672.153616"
+         filePath = "TETextWatcher.m"
+         timestampString = "378193992.84942"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1171"
-         endingLineNumber = "1171"
-         landmarkName = "-toolbar:itemForItemIdentifier:willBeInsertedIntoToolbar:"
+         startingLineNumber = "18"
+         endingLineNumber = "18"
+         landmarkName = "+textViewDidChangeSelection:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "DocumentWindowController.m"
-         timestampString = "378183672.153616"
+         filePath = "SpeakController.m"
+         timestampString = "378202111.667853"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1151"
-         endingLineNumber = "1151"
-         landmarkName = "-toolbarWillAddItem:"
+         startingLineNumber = "93"
+         endingLineNumber = "93"
+         landmarkName = "-pauseByWord:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "DocumentWindowController.m"
-         timestampString = "378183672.153616"
+         filePath = "SpeakController.m"
+         timestampString = "378202111.667853"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1224"
-         endingLineNumber = "1224"
-         landmarkName = "-toolbarDefaultItemIdentifiers:"
+         startingLineNumber = "98"
+         endingLineNumber = "98"
+         landmarkName = "-pauseBysentece:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
-         shouldBeEnabled = "Yes"
+         shouldBeEnabled = "No"
          ignoreCount = "0"
          continueAfterRunningActions = "No"
-         filePath = "DocumentWindowController.m"
-         timestampString = "378183672.153616"
+         filePath = "SpeakController.m"
+         timestampString = "378202111.667853"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "1241"
-         endingLineNumber = "1241"
-         landmarkName = "-toolbarAllowedItemIdentifiers:"
+         startingLineNumber = "103"
+         endingLineNumber = "103"
+         landmarkName = "-pauseImmediately:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

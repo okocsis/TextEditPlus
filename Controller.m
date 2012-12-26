@@ -56,6 +56,7 @@
 #import "TextEditMisc.h"
 #import "TETextWatcher.h"
 
+
 static NSDictionary *defaultValues() {
     static NSDictionary *dict = nil;
     if (!dict) {
@@ -103,6 +104,14 @@ static NSDictionary *defaultValues() {
 @implementation Controller
 
 @synthesize preferencesController, propertiesController, lineController;
+@synthesize delegatedDocumentWindowController = _delegatedDocumentWindowController;
+@synthesize segmentView, pullDownView;
+@synthesize sharedSpeakController;
+
+-(void) setDelegatedDocumentWindowController:(DocumentWindowController *)inDelegatedDocumentWindowController
+{
+    _delegatedDocumentWindowController =inDelegatedDocumentWindowController;
+}
 
 + (void)initialize {
     // Set up default values for preferences managed by NSUserDefaultsController
@@ -117,10 +126,14 @@ static NSDictionary *defaultValues() {
 }
 
 - (void)applicationDidFinishLaunching:(NSNotification *)notification {
+    
+//    [[NSNotificationCenter defaultCenter] addObserver:speakController selector:@selector(textViewDidChangeSelection:) name:NSTextViewDidChangeSelectionNotification object:nil];
+
     // To get service requests to go to the controller...
 	[[NSNotificationCenter defaultCenter] addObserver:[TETextWatcher class] selector:@selector(textViewDidChangeSelection:) name:NSTextViewDidChangeSelectionNotification object:nil];
-
+    
 	[NSApp setServicesProvider:self];
+    
 }
 
 /*** Services support ***/
