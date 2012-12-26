@@ -48,12 +48,15 @@
 #import <Cocoa/Cocoa.h>
 #import "ScalingScrollView.h"
 
-@interface DocumentWindowController : NSWindowController <NSLayoutManagerDelegate, NSTextViewDelegate> {
+@interface DocumentWindowController : NSWindowController <NSLayoutManagerDelegate, NSTextViewDelegate, NSToolbarDelegate> {
     IBOutlet ScalingScrollView *scrollView;
     NSLayoutManager *layoutMgr;
     BOOL hasMultiplePages;
     BOOL rulerIsBeingDisplayed;
     BOOL isSettingSize;
+    
+    IBOutlet NSToolbar* toolbar;
+    IBOutlet NSView* segmentView;
 }
 
 // Convenience initializer. Loads the correct nib automatically.

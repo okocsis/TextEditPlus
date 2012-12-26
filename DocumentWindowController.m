@@ -1067,5 +1067,193 @@
 }
 
 @end
+#pragma mark -
+#pragma mark Toolbar code
+
+#define kSegmentToolbarItemID   @"Segment"
+#define kPlayToolbarItemID      @"Play"
+#define kStopToolbarItemID     @"Stop"
+#define kPauseToolbarItemID    @"Pause"
+
+
+
+@implementation DocumentWindowController (myToolbarController)
+
+//--------------------------------------------------------------------------------------------------
+// Factory method to create autoreleased NSToolbarItems.
+//
+// All NSToolbarItems have a unique identifer associated with them, used to tell your delegate/controller
+// what toolbar items to initialize and return at various points.  Typically, for a given identifier,
+// you need to generate a copy of your "master" toolbar item, and return it autoreleased.  The function
+// creates an NSToolbarItem with a bunch of NSToolbarItem paramenters.
+//
+// It's easy to call this function repeatedly to generate lots of NSToolbarItems for your toolbar.
+//
+// The label, palettelabel, toolTip, action, and menu can all be nil, depending upon what you want
+// the item to do.
+//--------------------------------------------------------------------------------------------------
+- (NSToolbarItem *)toolbarItemWithIdentifier:(NSString *)identifier
+                                       label:(NSString *)label
+                                 paleteLabel:(NSString *)paletteLabel
+                                     toolTip:(NSString *)toolTip
+                                      target:(id)target
+                                 itemContent:(id)imageOrView
+                                      action:(SEL)action
+                                        menu:(NSMenu *)menu
+{
+    // here we create the NSToolbarItem and setup its attributes in line with the parameters
+    NSToolbarItem *item = [[[NSToolbarItem alloc] initWithItemIdentifier:identifier] autorelease];
+    
+    [item setLabel:label];
+    [item setPaletteLabel:paletteLabel];
+    [item setToolTip:toolTip];
+    [item setTarget:target];
+    [item setAction:action];
+    
+    // Set the right attribute, depending on if we were given an image or a view
+    if([imageOrView isKindOfClass:[NSImage class]]){
+        [item setImage:imageOrView];
+    } else if ([imageOrView isKindOfClass:[NSView class]]){
+        [item setView:imageOrView];
+    }else {
+        assert(!"Invalid itemContent: object");
+    }
+    
+    
+    // If this NSToolbarItem is supposed to have a menu "form representation" associated with it
+    // (for text-only mode), we set it up here.  Actually, you have to hand an NSMenuItem
+    // (not a complete NSMenu) to the toolbar item, so we create a dummy NSMenuItem that has our real
+    // menu as a submenu.
+    //
+    if (menu != nil)
+    {
+        // we actually need an NSMenuItem here, so we construct one
+        NSMenuItem *mItem = [[[NSMenuItem alloc] init] autorelease];
+        [mItem setSubmenu:menu];
+        [mItem setTitle:label];
+        [item setMenuFormRepresentation:mItem];
+    }
+    
+    return item;
+}
+#pragma mark -
+#pragma mark NSToolbarDelegate
+
+//--------------------------------------------------------------------------------------------------
+// This is an optional delegate method, called when a new item is about to be added to the toolbar.
+// This is a good spot to set up initial state information for toolbar items, particularly ones
+// that you don't directly control yourself (like with NSToolbarPrintItemIdentifier here).
+// The notification's object is the toolbar, and the @"item" key in the userInfo is the toolbar item
+// being added.
+//--------------------------------------------------------------------------------------------------
+- (void)toolbarWillAddItem:(NSNotification *)notif
+{
+    NSToolbarItem *addedItem = [[notif userInfo] objectForKey:@"item"];
+    
+    // Is this the printing toolbar item?  If so, then we want to redirect it's action to ourselves
+    // so we can handle the printing properly; hence, we give it a new target.
+    //
+    if ([[addedItem itemIdentifier] isEqual: NSToolbarPrintItemIdentifier])
+    {
+        [addedItem setToolTip:@"Print your document"];
+        [addedItem setTarget:self];
+    }
+}
+
+//--------------------------------------------------------------------------------------------------
+// This method is required of NSToolbar delegates.
+// It takes an identifier, and returns the matching NSToolbarItem. It also takes a parameter telling
+// whether this toolbar item is going into an actual toolbar, or whether it's going to be displayed
+// in a customization palette.
+//--------------------------------------------------------------------------------------------------
+- (NSToolbarItem *)toolbar:(NSToolbar *)toolbar itemForItemIdentifier:(NSString *)itemIdentifier willBeInsertedIntoToolbar:(BOOL)flag
+{
+    NSToolbarItem *toolbarItem = nil;
+    
+    // We create and autorelease a new NSToolbarItem, and then go through the process of setting up its
+    // attributes from the master toolbar item matching that identifier in our dictionary of items.
+    if ([itemIdentifier isEqualToString:kSegmentToolbarItemID])
+    {
+        // 1) Font style toolbar item
+        toolbarItem = [self toolbarItemWithIdentifier:kSegmentToolbarItemID
+                                                label:@"Reader controll"
+                                          paleteLabel:@"Reader controll"
+                                              toolTip:@"start pause stop speak"
+                                               target:self
+                                          itemContent:segmentView
+                                               action:nil
+                                                 menu:nil];
+    }
+//    else if ([itemIdentifier isEqualToString:kFontSizeToolbarItemID])
+//    {
+//        // 2) Font size toolbar item
+//        toolbarItem = [self toolbarItemWithIdentifier:kFontSizeToolbarItemID
+//                                                label:@"Font Size"
+//                                          paleteLabel:@"Font Size"
+//                                              toolTip:@"Grow or shrink the size of your font"
+//                                               target:self
+//                                          itemContent:fontSizeView
+//                                               action:nil
+//                                                 menu:fontSizeMenu];
+//    }
+//    else if ([itemIdentifier isEqualToString:kBlueLetterToolbarItemID])
+//    {
+//        // 3) Blue text toolbar item
+//        // often using an image will be your standard case.  You'll notice that a selector is passed
+//        // for the action (blueText:), which will be called when the image-containing toolbar item is clicked.
+//        //
+//        toolbarItem = [self toolbarItemWithIdentifier:kBlueLetterToolbarItemID
+//                                                label:@"Blue Text"
+//                                          paleteLabel:@"Blue Text"
+//                                              toolTip:@"This toggles blue text on/off"
+//                                               target:self
+//                                          itemContent:[NSImage imageNamed:@"blueLetter.tif"]
+//                                               action:@selector(blueText:)
+//                                                 menu:nil];
+//    }
+    
+    return toolbarItem;
+}
+
+//--------------------------------------------------------------------------------------------------
+// This method is required of NSToolbar delegates.  It returns an array holding identifiers for the default
+// set of toolbar items.  It can also be called by the customization palette to display the default toolbar.
+//--------------------------------------------------------------------------------------------------
+- (NSArray *)toolbarDefaultItemIdentifiers:(NSToolbar *)toolbar
+{
+    return [NSArray arrayWithObjects:   kSegmentToolbarItemID,
+            kPlayToolbarItemID,
+            kStopToolbarItemID,
+            kPauseToolbarItemID,
+            NSToolbarPrintItemIdentifier,
+            nil];
+    // note:
+    // that since our toolbar is defined from Interface Builder, an additional separator and customize
+    // toolbar items will be automatically added to the "default" list of items.
+}
+
+//--------------------------------------------------------------------------------------------------
+// This method is required of NSToolbar delegates.  It returns an array holding identifiers for all allowed
+// toolbar items in this toolbar.  Any not listed here will not be available in the customization palette.
+//--------------------------------------------------------------------------------------------------
+- (NSArray *)toolbarAllowedItemIdentifiers:(NSToolbar *)toolbar
+{
+    return [NSArray arrayWithObjects:   kSegmentToolbarItemID,
+            kPlayToolbarItemID,
+            kStopToolbarItemID,
+            kPauseToolbarItemID,
+            NSToolbarSpaceItemIdentifier,
+            NSToolbarFlexibleSpaceItemIdentifier,
+            NSToolbarPrintItemIdentifier,
+            nil];
+    // note:
+    // that since our toolbar is defined from Interface Builder, an additional separator and customize
+    // toolbar items will be automatically added to the "default" list of items.
+}
+
+
+
+
+@end
 
 

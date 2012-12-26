@@ -16,5 +16,57 @@
          landmarkName = "-makeScalePopUpButton"
          landmarkType = "5">
       </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "DocumentWindowController.m"
+         timestampString = "378183672.153616"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1171"
+         endingLineNumber = "1171"
+         landmarkName = "-toolbar:itemForItemIdentifier:willBeInsertedIntoToolbar:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "DocumentWindowController.m"
+         timestampString = "378183672.153616"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1151"
+         endingLineNumber = "1151"
+         landmarkName = "-toolbarWillAddItem:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "DocumentWindowController.m"
+         timestampString = "378183672.153616"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1224"
+         endingLineNumber = "1224"
+         landmarkName = "-toolbarDefaultItemIdentifiers:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "Yes"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "DocumentWindowController.m"
+         timestampString = "378183672.153616"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "1241"
+         endingLineNumber = "1241"
+         landmarkName = "-toolbarAllowedItemIdentifiers:"
+         landmarkType = "5">
+      </FileBreakpoint>
    </FileBreakpoints>
 </Bucket>
