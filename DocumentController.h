@@ -56,6 +56,7 @@
     NSMutableArray *deferredDocuments;
     NSLock *transientDocumentLock;
     NSLock *displayDocumentLock;
+    IBOutlet  SpeakController* speakController;
 }
 @property (assign) IBOutlet  SpeakController* speakController;
 

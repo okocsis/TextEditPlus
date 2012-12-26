@@ -15,6 +15,8 @@
     NSSpeechSynthesizer* synth;
     BOOL _isPaused;
     char _speechBoundary;
+    
+    NSTextView* currentTextView;
 }
 @property (nonatomic,retain) NSTextView* currentTextView;
 - (IBAction)speak:(id)sender;

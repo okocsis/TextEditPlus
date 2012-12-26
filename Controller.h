@@ -57,6 +57,11 @@
     IBOutlet LinePanelController *lineController;
     IBOutlet SpeakController* speakController;
     
+    DocumentWindowController* delegatedDocumentWindowController;
+    IBOutlet NSView* segmentView;
+    IBOutlet NSView* pullDownView;
+    IBOutlet SpeakController* sharedSpeakController;
+    
 }
 
 @property (assign) Preferences *preferencesController;

@@ -9,7 +9,7 @@
 #import "SpeakController.h"
 
 @implementation SpeakController
-@synthesize currentTextView = _currentTextView;
+@synthesize currentTextView;
 
 - (id)init
 {
@@ -49,7 +49,7 @@
         [synth continueSpeaking];
         _isPaused = NO;
     } else {
-        [synth startSpeakingString:[[_currentTextView textStorage] string]];
+        [synth startSpeakingString:[[currentTextView textStorage] string]];
     }
     
 }
