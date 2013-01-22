@@ -72,7 +72,7 @@
 		C318FADD168AA73B0062C9CA /* SpeakController.m in Sources */ = {isa = PBXBuildFile; fileRef = C318FADB168AA73B0062C9CA /* SpeakController.m */; };
 		C32F5EF7168B1FE900A04D5F /* reader.bmp in Resources */ = {isa = PBXBuildFile; fileRef = C32F5EF6168B1FE900A04D5F /* reader.bmp */; };
 		C32F5EF9168B201000A04D5F /* reader.png in Resources */ = {isa = PBXBuildFile; fileRef = C32F5EF8168B201000A04D5F /* reader.png */; };
-		C32F5EFB168B208900A04D5F /* readerIkon.png in Resources */ = {isa = PBXBuildFile; fileRef = C32F5EFA168B208900A04D5F /* readerIkon.png */; };
+		C357EAF516AF169800B864D0 /* TextReader.icns in Resources */ = {isa = PBXBuildFile; fileRef = C357EAF416AF169800B864D0 /* TextReader.icns */; };
 		FB69D020085E20E300646BBF /* DocumentWindowController.h in Headers */ = {isa = PBXBuildFile; fileRef = FB69D01E085E20E300646BBF /* DocumentWindowController.h */; };
 		FB69D021085E20E300646BBF /* DocumentWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB69D01F085E20E300646BBF /* DocumentWindowController.m */; };
 		FBF176CA084E77CE005F6CEB /* DocumentController.h in Headers */ = {isa = PBXBuildFile; fileRef = FBF176C8084E77CE005F6CEB /* DocumentController.h */; };
@@ -150,7 +150,7 @@
 		C318FADB168AA73B0062C9CA /* SpeakController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SpeakController.m; sourceTree = "<group>"; };
 		C32F5EF6168B1FE900A04D5F /* reader.bmp */ = {isa = PBXFileReference; lastKnownFileType = image.bmp; path = reader.bmp; sourceTree = "<group>"; };
 		C32F5EF8168B201000A04D5F /* reader.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reader.png; sourceTree = "<group>"; };
-		C32F5EFA168B208900A04D5F /* readerIkon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = readerIkon.png; sourceTree = "<group>"; };
+		C357EAF416AF169800B864D0 /* TextReader.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = TextReader.icns; sourceTree = "<group>"; };
 		F549503200E2A3BB01CA0CA4 /* DocumentWindow.nib */ = {isa = PBXFileReference; lastKnownFileType = wrapper.nib; path = DocumentWindow.nib; sourceTree = "<group>"; };
 		FB69D01E085E20E300646BBF /* DocumentWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DocumentWindowController.h; sourceTree = "<group>"; };
 		FB69D01F085E20E300646BBF /* DocumentWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DocumentWindowController.m; sourceTree = "<group>"; };
@@ -266,7 +266,7 @@
 		6FE20917FE93D5F211CA2CEA /* Images */ = {
 			isa = PBXGroup;
 			children = (
-				C32F5EFA168B208900A04D5F /* readerIkon.png */,
+				C357EAF416AF169800B864D0 /* TextReader.icns */,
 				6FE2091FFE93D5F211CA2CEA /* Edit.icns */,
 				6FE2091CFE93D5F211CA2CEA /* txt.icns */,
 				6FE20922FE93D5F211CA2CEA /* rtf.icns */,
@@ -423,7 +423,7 @@
 				417C5C210B962CDF008C4735 /* PrintPanelAccessory.strings in Resources */,
 				C32F5EF7168B1FE900A04D5F /* reader.bmp in Resources */,
 				C32F5EF9168B201000A04D5F /* reader.png in Resources */,
-				C32F5EFB168B208900A04D5F /* readerIkon.png in Resources */,
+				C357EAF516AF169800B864D0 /* TextReader.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

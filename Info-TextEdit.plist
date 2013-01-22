@@ -204,7 +204,7 @@
 	<key>CFBundleHelpBookName</key>
 	<string>com.apple.TextEdit.help</string>
 	<key>CFBundleIconFile</key>
-	<string>readerIkon</string>
+	<string>TextReader</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.apple.TextEdit</string>
 	<key>CFBundleInfoDictionaryVersion</key>
